@@ -25,7 +25,7 @@ parser.add_argument('url', action='append')
 parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
 parsed_input = parser.parse_args()
-url = parsed_input.url
+url = parsed_input.url[0]
 url_components = url.split('/')[2:]
 repo_folder = url_components[-1].split('.')[0]
 
