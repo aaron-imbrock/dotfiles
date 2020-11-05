@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+
+def assert_linux():
+    assert ('linux' in sys.platform), "This code runs on Linux only."
+
+def assert_root():
+    assert (os.geteuid() == 0), "Operation not permitted: Requres Super User privileges"
+
+def argv_handler():
+    return sys.argv[1]
+
+def target_handler():
+    ## Preflight Checks:
+    # TODO: Is a drive?
+    # TODO: Is mounted?
+    # TODO: Is not system drive?
+    # TODO: clear_gpt()
+    # TODO: clear_mbr()
+    pass
+
+def clear_raid_magic():
+    pass
+
+def clear_gpt(target):
+    pass    
+
+def clear_mbr(target):
+    pass
+
+if __name__ == '__main__':
+    try:
+        assert_linux()
+        assert_root()
+        drive = argv_handler()
+        print(drive)
+    except AssertionError as error:
+        print(error)
+        sys.exit(1)
+
+#    fd = open(target, "w+")
+#    fd.seek(0)
+#    fd.writ
