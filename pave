@@ -12,6 +12,9 @@ def assert_root():
 def argv_handler():
     return sys.argv[1]
 
+def umount():
+    pass
+
 def target_handler():
     ## Preflight Checks:
     # TODO: Is a drive?
