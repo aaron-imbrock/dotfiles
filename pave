@@ -3,6 +3,8 @@
 import sys
 import os
 
+drives = {}
+
 def assert_linux():
     assert ('linux' in sys.platform), "This code runs on Linux only."
 
@@ -38,7 +40,12 @@ if __name__ == '__main__':
         assert_linux()
         assert_root()
         drive = argv_handler()
-        print(drive)
+
+        for device in os.listdir('/dev'):
+            if (('sd' in device) and (len(device) == 3)):
+                drives[device] = {}
+
+        print(drive, drives)
     except AssertionError as error:
         print(error)
         sys.exit(1)
