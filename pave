@@ -3,8 +3,6 @@
 import sys
 import os
 
-drives = {}
-
 def assert_linux():
     assert ('linux' in sys.platform), "This code runs on Linux only."
 
@@ -36,6 +34,9 @@ def clear_mbr(target):
     pass
 
 if __name__ == '__main__':
+
+    drives = {}
+
     try:
         assert_linux()
         assert_root()
@@ -50,6 +51,3 @@ if __name__ == '__main__':
         print(error)
         sys.exit(1)
 
-#    fd = open(target, "w+")
-#    fd.seek(0)
-#    fd.writ
