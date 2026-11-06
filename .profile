@@ -26,7 +26,7 @@ fi
 
 # set GOPATH so it includes user's GO bin if it exists
 if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin":$PATH"
+    PATH="$HOME/go/bin:$PATH"
 fi
 
 #alias cat="batcat"
