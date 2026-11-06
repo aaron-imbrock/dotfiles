@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Check we're not running on Debian
+assert_not_debian() {
+    if [ "$(awk '/Debian/ {print $1}' /etc/issue)" = "Debian" ]
+    then
+        echo ""
+        echo "This is not the apt you're looking for."
+        echo ""
+        print_help
+    fi
+    exit
+}
+
+print_help() {
+cat << 'END'
+╔═══════════════════════════════════════════════════╗
+║  Strange Apt                                      ║
+║  A wrapper for pacman and yay commands.           ║
+╠═══════════════════════════════════════════════════╣
+║  APT COMMAND      │  PACMAN EQUIVALENT            ║
+║  ─────────────────┼─────────────────────────────  ║
+║  apt autoremove   │  pacman -Rns $(pacman -Qtdq)  ║
+║  apt dist-upgrade │  pacman -Syu                  ║
+║  apt install      │  pacman -S                    ║
+║  apt purge        │  yay -Rns                     ║
+║  apt search       │  pacman -Ss                   ║
+║  apt update       │  pacman -Sy                   ║
+╚═══════════════════════════════════════════════════╝
+END
+exit
+}
+
+if [ $# -lt 1 ]
+then
+	print_help
+fi
+
+assert_not_debian
+
+case "$1" in
+
+    autoremove)
+        pacman -Rns $(pacman -Qtdq)
+        ;;
+    dist-upgrade)
+        pacman -Syu
+        ;;
+    install)
+        pacman -S $2
+        ;;
+    purge)
+        yay -Rns $2
+		;;
+    search)
+        pacman -Ss $2
+        ;;
+	update)
+        pacman -Sy
+		;;
+esac

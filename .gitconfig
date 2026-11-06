@@ -1,0 +1,16 @@
+[user]
+	email = aimbrock@gmail.com
+	name = Aaron Imbrock
+[core]
+	editor = code --wait
+	pager = delta
+	sshCommand = ssh -o IdentitiesOnly=yes -i ~/.ssh/stilnox_git
+[init]
+	defaultbranch = main
+[http]
+    postBuffer = 157286400
+[delta]
+    navigate = true
+    line-numbers = true
+[merge]
+    conflictstyle = zdiff3
