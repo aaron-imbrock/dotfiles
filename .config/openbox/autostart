@@ -1,0 +1,51 @@
+# 
+#
+## LX PolicyKit
+lxpolkit &
+
+## Set root window colour
+hsetroot -solid "#2E3436" &
+
+picom --config ~/.config/picom/picom.conf &
+#tint2 &
+
+## Start nm-applet for systray
+#nm-applet &
+
+## Volume keys daemon
+mate-volume-control-status-icon &
+
+## Enable power management
+mate-power-manager &
+
+## Start Thunar Daemon
+pcmanfm --daemon &
+
+## Start xscreensaver
+xscreensaver -no-splash &
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+xset r rate 250 25 &
+
+## Turn on/off system beep
+xset b off &
+
+## Run the conky
+#conky -q &
+
+# --class Autostart aligns to rc.xml Alacritty so that alacritty starts w/ Openbox on desktop 1
+# but later terminals won't all be forced to desktop 1. Classname can be anything, it just needs to match.
+/usr/bin/alacritty --class Autostart &
+#/usr/bin/blueman-manager --class Blueman-manager &
+/usr/bin/mate-volume-control --class Mate-volume-control &
+
+# Start if there's internet access
+# Technically, the check should be if systemctl /mnt/keepass/ worked
+if ping -c 1 -w 1 8.8.8.8 &> /dev/null || ping -c 1 -w 1 1.1.1.1 &> /dev/null; then
+	# keepassxc is a Qt program, so we use --name for --class
+	/usr/bin/keepassxc --name keepassxc &
+fi
+
+## Hacks for notifyd since it switched to systemd
+# package name: xfce4-notifyd
+/usr/lib/*/xfce4/notifyd/xfce4-notifyd &

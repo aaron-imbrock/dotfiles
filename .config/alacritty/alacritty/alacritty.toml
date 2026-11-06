@@ -1,0 +1,113 @@
+# alacritty.toml
+
+general.live_config_reload = true
+
+general.import = ["~/.config/alacritty/themes/clear_dark_punchy.toml"]
+#general.import = ["~/.config/alacritty/themes/themes/tomorrow_night_blue.toml"]
+#general.import = ["~/.config/alacritty/themes/amber_dark.toml"]
+
+[env]
+TERM = "alacritty"
+
+[window]
+decorations     = "full"
+dynamic_padding = false
+dynamic_title   = true
+opacity         = 1.0
+startup_mode    = "Windowed"
+title           = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines   = 0
+
+[window.padding]
+x = 2
+y = 2
+
+[scrolling]
+history = 12000
+
+[font]
+builtin_box_drawing = false
+size                = 8.0
+
+# Substitute monospace with a font name from the output of
+# fc-list : family style
+[font.bold]
+family = "SF Mono"
+style  = "Bold"
+
+[font.bold_italic]
+family = "SF Mono"
+style  = "Bold Italic"
+
+[font.italic]
+family = "SF Mono"
+style  = "Regular Italic"
+
+[font.normal]
+family = "SF Mono"
+style  = "Regular"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+
+[bell]
+animation = "EaseOutExpo"
+color     = "#C0C5CE"
+command   = "None"
+duration  = 0
+
+[selection]
+save_to_clipboard     = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[cursor]
+unfocused_hollow = true
+vi_mode_style    = "None"
+
+[[keyboard.bindings]]
+action = "Paste"
+key    = "V"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key    = "C"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key    = "PageUp"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key    = "PageDown"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key    = "Home"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key    = "End"
+mods   = "Shift"
+
+[mouse]
+hide_when_typing = true
+
+[debug]
+highlight_damage   = false
+log_level          = "Warn"
+persistent_logging = false
+print_events       = false
+render_timer       = false
