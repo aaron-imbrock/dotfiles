@@ -1,10 +1,4 @@
-<header>
-
-</header>
-
-<article>
-
-# Keeping your home in Git, the right way
+### Keeping your home in Git, the right way
 
 Published on <span id="pubdate">2014-12-17</span>. Modified on <span id="moddate">2021-04-08</span>.
 Article copied from https://www.unixsheikh.com/tutorials/keeping-your-home-in-git.html and updated by Aaron Imbrock for personal use.
@@ -96,5 +90,3 @@ The same goes if you begin by a pull.
 Now you can push and pull on that box too.
 
 That's it!
-
-</article>
